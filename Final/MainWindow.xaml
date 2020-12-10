@@ -1,0 +1,28 @@
+﻿<Window x:Class="Final.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Final"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="Add Contact" Click="addContact" HorizontalAlignment="Left" Margin="669,23,0,0" VerticalAlignment="Top" Width="108" Height="42"/>
+        <Button Content="Delete Contact" Name="removeContact" HorizontalAlignment="Left" Margin="669,150,0,0" VerticalAlignment="Top" Width="108" Height="42" Click="removeContact_Click"/>
+        <Button Content="Edit Contact" Click="editContact" HorizontalAlignment="Left" Margin="669,86,0,0" VerticalAlignment="Top" Width="108" Height="42"/>
+        <Button Content="Export CSV" Name="exportCSV" HorizontalAlignment="Left" Margin="669,340,0,0" VerticalAlignment="Top" Width="108" Height="42"/>
+        <Button Content="Import CSV" Name="importCSV" HorizontalAlignment="Left" Margin="669,280,0,0" VerticalAlignment="Top" Width="108" Height="42"/>
+        <ListView x:Name="list" Height="169" Width="634" Margin="19,23,140.333,228.667">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="View Contacts" Click="view" HorizontalAlignment="Left" Margin="351,239,0,0" VerticalAlignment="Top" Width="293" Height="72"/>
+        <ListBox x:Name="infoBox" HorizontalAlignment="Left" Height="171" Margin="10,211,0,0" VerticalAlignment="Top" Width="298" SelectionChanged="infoBox_SelectionChanged"/>
+        <Button Content="Exit Program" HorizontalAlignment="Left" Margin="351,340,0,0" VerticalAlignment="Top" Width="293" Height="71" Click="exitProgram_Click"/>
+
+
+    </Grid>
+</Window>
