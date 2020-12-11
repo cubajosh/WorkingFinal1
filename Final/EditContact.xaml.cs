@@ -23,9 +23,11 @@ namespace Final
     public partial class EditContact : Window
     {
         string ConString = ConfigurationManager.ConnectionStrings["ManagerConn"].ConnectionString;
+        Manager con;
         public EditContact(Manager man)
         {
             InitializeComponent();
+            con = man;
             Name.Text = man.Name;
             Phone.Text = man.Phone.ToString();
             City.Text = man.City;
@@ -35,13 +37,17 @@ namespace Final
 
         private void edit(object sender, RoutedEventArgs e)
         {
-            Manager contact = new Manager();
-            contact.Name = Name.Text;
-            contact.Phone = Convert.ToInt32(Phone.Text);
-            contact.Gender = Gender.Text.ToString();
-            contact.Age = Convert.ToInt32(Age.Text);
-            contact.City = City.Text;
-            DBHandler.Instance.EditContact(contact);
+            
+            con.Name = Name.Text;
+            con.Phone = Convert.ToInt32(Phone.Text);
+            con.Gender = Gender.Text.ToString();
+            con.Age = Convert.ToInt32(Age.Text);
+            con.City = City.Text;
+            DBHandler.Instance.EditContact(con);
+
+            var found = ListHandler.Instance.ContactList.FirstOrDefault(x => x.ID == con.ID);
+            ListHandler.Instance.ContactList.Remove(found);
+            ListHandler.Instance.ContactList.Add(con);
 
 
 

@@ -11,7 +11,7 @@ namespace Final
     class Reader
     {
         string ConString = ConfigurationManager.ConnectionStrings["ManagerConn"].ConnectionString;
-        public List<Manager> ReadAllManagers()
+        public void ReadAllManagers()
         {
             List<Manager> manageList = new List<Manager>();
 
@@ -24,23 +24,11 @@ namespace Final
                 {
                     while (reader.Read())
                     {
-                        Manager manager = new Manager();
-                        manager.Name = reader["Name"].ToString();
-                        if (Int32.TryParse(reader["Phone"].ToString(), out int Phone))
-                        {
-                            manager.Phone = Phone;
-                        }
-                        manager.City = reader["City"].ToString();
-                        if (Int32.TryParse(reader["Age"].ToString(), out int Age))
-                        {
-                            manager.Age = Age;
-                        }
-                        manager.Gender = reader["Gender"].ToString();
-                        manageList.Add(manager);
+                        Manager contact = new Manager((int)reader["ID"], (string)reader["Name"], (int)reader["Phone"], (string)reader["City"], (int)reader["Age"], (string)reader["Gender"]);
+                        manageList.Add(contact);
                     }
-                    reader.Close();
+                    con.Close();
                 }
-                return manageList;
             }
         }
     }

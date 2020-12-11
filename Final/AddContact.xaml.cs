@@ -33,6 +33,7 @@ namespace Final
             contact.Age = Convert.ToInt32(Age.Text);
             contact.City = City.Text;
             DBHandler.Instance.AddContact(contact);
+            ListHandler.Instance.ContactList.Add(contact);
 
         }
     }

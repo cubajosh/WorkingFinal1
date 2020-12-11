@@ -60,6 +60,7 @@
     <Compile Include="EditContact.xaml.cs">
       <DependentUpon>EditContact.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListHandler.cs" />
     <Compile Include="Reader.cs" />
     <Page Include="AddContact.xaml">
       <SubType>Designer</SubType>
