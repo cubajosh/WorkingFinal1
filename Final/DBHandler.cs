@@ -27,7 +27,7 @@ namespace Final
         {
 
             using (SqlConnection con = new SqlConnection(ConString))
-            {
+            {               
                 con.Open();
 
                 SqlCommand cmd = new SqlCommand("Select * From Manage", con);
@@ -60,6 +60,8 @@ namespace Final
             return manList;
 
         }
+
+
         public void AddContact(Manager contact)
         {
 
@@ -79,6 +81,8 @@ namespace Final
                 }
             }
         }
+
+
         public void EditContact(Manager contact)
         {
             SqlDataAdapter da = new SqlDataAdapter();
@@ -104,6 +108,8 @@ namespace Final
                 
             }
         }
+
+
         public void ReadAllManagers()
         {
             List<Manager> manageList = new List<Manager>();
@@ -124,6 +130,9 @@ namespace Final
                 }
             }
         }
+
+
+
         public void RemoveContact(Manager contact)
         {
             int row = 0;
@@ -144,6 +153,8 @@ namespace Final
                 con.Close();
             }
         }
+
+
         
     }
     

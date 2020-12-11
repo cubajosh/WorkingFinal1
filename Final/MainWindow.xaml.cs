@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,7 @@ namespace Final
         ListHandler lh = ListHandler.Instance;
 
         string ConString = ConfigurationManager.ConnectionStrings["ManagerConn"].ConnectionString;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -81,5 +83,45 @@ namespace Final
                 MessageBox.Show("User Was Not Found", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+
+        ExportCsv exp = new ExportCsv();
+        private void importCSV_Click(object sender, RoutedEventArgs e)
+        {
+            var lineNum = 0;
+            using(SqlConnection conn = new SqlConnection(ConString))
+            {
+                conn.Open();
+                // here again it depends where you save the file
+                using (StreamReader reader = new StreamReader(@"C:\ExporteData.csv"))
+                {
+                    while (!reader.EndOfStream)
+                    {
+                        var line = reader.ReadLine();
+
+                        if(lineNum != 0) {
+                        var values = line.Split(',');
+
+                        string sql = "INSERT INTO Manage VALUES('" + values[0] + "','" + values[1] + "', '" + values[2] + "', '" + values[3] + "', '" + values[4] + ")";
+
+                        SqlCommand cmd = new SqlCommand();
+                        cmd.CommandText = sql;
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        cmd.Connection = conn;
+                        cmd.ExecuteNonQuery();
+                        }
+                        lineNum++;
+                    }
+                }
+                conn.Close();
+            }
+        }
+
+
+        public void exportCSV_Click(object sender, RoutedEventArgs e)
+        {
+                exp.GetCsv();
+        }
+
     }
 }

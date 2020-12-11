@@ -28,7 +28,7 @@ namespace Final
         {
             Manager contact = new Manager();
             contact.Name = Name.Text;
-            contact.Phone = Convert.ToInt32(Phone.Text);
+            contact.Phone = Convert.ToInt32(Phone.Text); 
             contact.Gender = Gender.Text.ToString();
             contact.Age = Convert.ToInt32(Age.Text);
             contact.City = City.Text;

@@ -18,7 +18,7 @@ namespace Final
             using (SqlConnection con = new SqlConnection(ConString))
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select * From ManagerTable");
+                SqlCommand cmd = new SqlCommand("Select * From Manage");
 
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {

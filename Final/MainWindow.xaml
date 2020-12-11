@@ -10,8 +10,8 @@
         <Button Content="Add Contact" Click="addContact" HorizontalAlignment="Left" Margin="669,23,0,0" VerticalAlignment="Top" Width="108" Height="42"/>
         <Button Content="Delete Contact" Name="removeContact" HorizontalAlignment="Left" Margin="669,150,0,0" VerticalAlignment="Top" Width="108" Height="42" Click="removeContact_Click"/>
         <Button Content="Edit Contact" Click="editContact" HorizontalAlignment="Left" Margin="669,86,0,0" VerticalAlignment="Top" Width="108" Height="42"/>
-        <Button Content="Export CSV" Name="exportCSV" HorizontalAlignment="Left" Margin="669,340,0,0" VerticalAlignment="Top" Width="108" Height="42"/>
-        <Button Content="Import CSV" Name="importCSV" HorizontalAlignment="Left" Margin="669,280,0,0" VerticalAlignment="Top" Width="108" Height="42"/>
+        <Button Content="Export CSV" Click="exportCSV_Click" Name="exportCSV" HorizontalAlignment="Left" Margin="669,340,0,0" VerticalAlignment="Top" Width="108" Height="42"/>
+        <Button Content="Import CSV" Click="importCSV_Click" Name="importCSV" HorizontalAlignment="Left" Margin="669,280,0,0" VerticalAlignment="Top" Width="108" Height="42"/>
         <ListView x:Name="list" Height="169" Width="634" Margin="19,23,140.333,228.667">
             <ListView.View>
                 <GridView>

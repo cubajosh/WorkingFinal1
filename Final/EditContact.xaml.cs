@@ -24,6 +24,7 @@ namespace Final
     {
         string ConString = ConfigurationManager.ConnectionStrings["ManagerConn"].ConnectionString;
         Manager con;
+
         public EditContact(Manager man)
         {
             InitializeComponent();
